@@ -1,4 +1,4 @@
-# MinisQQ macOS 原生构建（roothide）
+# MinisQQ macOS 原生构建（标准 substrate，兼容 TrollFools 注入）
 name: Build MinisQQ
 
 on:
@@ -15,9 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install theos (roothide branch)
+      - name: Install theos (standard branch for substrate)
         run: |
-          git clone --recursive --depth 1 https://github.com/roothide/theos.git "$THEOS"
+          git clone --recursive --depth 1 https://github.com/theos/theos.git "$THEOS"
 
       - name: Install iOS 16.5 SDK
         run: |
@@ -37,7 +37,6 @@ jobs:
 
       - name: Build package
         run: |
-          export THEOS_PACKAGE_SCHEME=roothide
           make clean
           make package FINALPACKAGE=1
 
