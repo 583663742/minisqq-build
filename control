@@ -1,0 +1,8 @@
+Package: com.example.minisqq
+Name: MinisQQ
+Version: 1.4.4
+Description: MinisQQ - QQ floating ball, renamed from QQFloatBall, task list only, per-task test, fat arm64+arm64e for TrollStore (v1.4.4)
+Depends: mobilesubstrate
+Maintainer: 傘
+Section: Tweaks
+Architecture: iphoneos-arm64e

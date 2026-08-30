@@ -1,0 +1,12 @@
+#!/bin/bash
+# QQFloatBall postinst — 仅清理旧残留，不创建 symlink
+# roothidepatch symlink 已打包在 data.tar 内（dpkg 解压即生效），postinst 运行时创建会失效
+DYLIB_NAME="QQFloatBall"
+
+for DIR in /var/jb/usr/lib/TweakInject /Library/MobileSubstrate/DynamicLibraries /var/jb/Library/MobileSubstrate/DynamicLibraries; do
+    if [ -d "$DIR" ]; then
+        rm -f "$DIR/${DYLIB_NAME}.dylib.DISABLED" "$DIR/${DYLIB_NAME}.dylib.bak"
+    fi
+done
+
+exit 0
